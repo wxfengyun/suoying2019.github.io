@@ -375,7 +375,7 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         //}
     }
     this.nextAnimate = nextAnimate;
-    this.page5Topage7 = page5Topage7;
+    // this.page5Topage7 = page5Topage7;
 
     function createStart(){
         var p = document.createElement('p');

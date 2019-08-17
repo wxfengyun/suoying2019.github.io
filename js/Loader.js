@@ -152,7 +152,9 @@ var Loader = function(){
 		img.onerror = function(){
 			obj.Loading(imgArray,obj.success);
 		};
-		img.src = ctx + "/template/1024/" + imgArray[0];
+
+		console.log(imgArray[0]);
+		img.src =  imgArray[0];
 	};
 };
 window.onload = function(){

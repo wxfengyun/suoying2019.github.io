@@ -389,48 +389,48 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         startTime = setTimeout(createStart,Math.floor(Math.random() * 3000));
     }
 
-    var page5Rest = $('.page5 .message .rest')[0],
-        page5 = $('.page5 .message')[0],
-        isMovePage5 = false;
-    page5Rest.addEventListener('touchstart',function(e){
-        e.preventDefault();
-        clearTimeout(restTime);  // 停止 休息一下 的定时器
-        clearTimeout(startTime);   // 停止 创建星星 的定时器
-        clearTimeout(bigTime);
-        page5Topage7();
-    },false);
+    // var page5Rest = $('.page5 .message .rest')[0],
+    //     page5 = $('.page5 .message')[0],
+    //     isMovePage5 = false;
+    // page5Rest.addEventListener('touchstart',function(e){
+    //     e.preventDefault();
+    //     clearTimeout(restTime);  // 停止 休息一下 的定时器
+    //     clearTimeout(startTime);   // 停止 创建星星 的定时器
+    //     clearTimeout(bigTime);
+    //     page5Topage7();
+    // },false);
 
-    page5.addEventListener('touchstart',function(e){
-        e.preventDefault();
-    },false);
-    page5.addEventListener('touchmove',function(e){
-        e.preventDefault();
-        isMovePage5 = true;
-    },false);
-    page5.addEventListener('touchend',function(){
-        if( isMovePage5 && isCan5To7 ){
-            clearTimeout(restTime);  // 停止 休息一下 的定时器
-            clearTimeout(startTime);   // 停止 创建星星 的定时器
-            clearTimeout(bigTime);
-            page5Topage7();
-        }
-    },false);
+    // page5.addEventListener('touchstart',function(e){
+    //     e.preventDefault();
+    // },false);
+    // page5.addEventListener('touchmove',function(e){
+    //     e.preventDefault();
+    //     isMovePage5 = true;
+    // },false);
+    // page5.addEventListener('touchend',function(){
+    //     if( isMovePage5 && isCan5To7 ){
+    //         clearTimeout(restTime);  // 停止 休息一下 的定时器
+    //         clearTimeout(startTime);   // 停止 创建星星 的定时器
+    //         clearTimeout(bigTime);
+    //         page5Topage7();
+    //     }
+    // },false);
 
-    // 从page5 文案页 跳转到 page7 礼物领取页
-    function page5Topage7(){
-        clearTimeout(restTime);  // 停止 休息一下 的定时器
-        clearTimeout(startTime);   // 停止 创建星星 的定时器
-        clearTimeout(bigTime);
-        //$('.page5 .wordBG')[0].pause();  // 停止播放背景音乐
-        // 显示page7 隐藏 page5
-        //$('.page5 .message').addClass('moveToTop');
-        $('.page5 .message .messBG').addClass('scaleToBig');
-        $('.page5 .message').addClass('toFadeIn');
-        $('.page5 .apply-page').addClass('moveToCen').removeClass('hidden');
-        //if( !$('.page7').hasClass('hidden') ){
-        //    $('.page5 .wordBG')[0].pause();  // 停止播放背景音乐
-        //}
-    }
+    // // 从page5 文案页 跳转到 page7 礼物领取页
+    // function page5Topage7(){
+    //     clearTimeout(restTime);  // 停止 休息一下 的定时器
+    //     clearTimeout(startTime);   // 停止 创建星星 的定时器
+    //     clearTimeout(bigTime);
+    //     //$('.page5 .wordBG')[0].pause();  // 停止播放背景音乐
+    //     // 显示page7 隐藏 page5
+    //     //$('.page5 .message').addClass('moveToTop');
+    //     $('.page5 .message .messBG').addClass('scaleToBig');
+    //     $('.page5 .message').addClass('toFadeIn');
+    //     $('.page5 .apply-page').addClass('moveToCen').removeClass('hidden');
+    //     //if( !$('.page7').hasClass('hidden') ){
+    //     //    $('.page5 .wordBG')[0].pause();  // 停止播放背景音乐
+    //     //}
+    // }
 
     function submitApplication(data, successCb, errorCb) {
         $.ajax({

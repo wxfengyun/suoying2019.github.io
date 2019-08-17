@@ -51,7 +51,7 @@ $(function(){
         //}
     }
 
-    page1Play();
+    $('.tips')[0].play();
 
     //init.initDate = initDate;  // 设置时间循环
     this.page1Play = page1Play;  // 消息显示与消息声音提示

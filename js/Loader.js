@@ -34,12 +34,12 @@ var imgArray = [
 	//"images/page10_cover.png",
 	//"images/messImage.png",
 	//"images/phonePhoto.png",
-	//"images/voice.mp3",
-	//"images/unlock.mp3",
+	"images/voice.mp3",
+	"images/unlock.mp3",
 	//"images/wordBG2.mp3",
-	//"images/message.mp3",
-	//"images/call.mp3",
-	//"images/dudu.mp3",
+	"images/message.mp3",
+	"images/call.mp3",
+	"images/dudu.mp3",
 	//"images/page7-bg.png",
 	//"images/page7_gift.png",
 	//"images/page7_giftnumber.png",
@@ -83,7 +83,7 @@ var Loader = function(){
                     }
                 };
                 //img.src = ctx + "/template/1024/" + imgArray[i];
-                // img.src = "/" + imgArray[i];
+                img.src = "/" + imgArray[i];
             }else{
                 this.loadMusic(imgArray[i]);
             }
@@ -136,7 +136,7 @@ var Loader = function(){
 			obj.Loading(imgArray,obj.success);
 		};
 		//img.src = ctx + "/template/1024/" + imgArray[0];
-		// img.src =  "/" + imgArray[0];
+		img.src =  "/" + imgArray[0];
 	};
 };
 //window.onload = function(){

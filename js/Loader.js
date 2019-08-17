@@ -82,7 +82,9 @@ var Loader = function(){
 						success();  // 回调函数
 					}
 				};
-				img.src = ctx + "/template/1024/" + imgArray[i];
+
+				console.log(imgArray[i]);
+				img.src = imgArray[i];
 			}else{
 				this.loadMusic(imgArray[i]);
 			}

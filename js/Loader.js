@@ -83,8 +83,7 @@ var Loader = function(){
 					}
 				};
 
-				console.log(imgArray[i]);
-				img.src = imgArray[i];
+				img.src = "/" + imgArray[i];
 			}else{
 				this.loadMusic(imgArray[i]);
 			}
@@ -155,8 +154,7 @@ var Loader = function(){
 			obj.Loading(imgArray,obj.success);
 		};
 
-		console.log(imgArray[0]);
-		img.src =  imgArray[0];
+		img.src =  "/" + imgArray[0];
 	};
 };
 window.onload = function(){

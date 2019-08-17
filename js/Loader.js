@@ -83,7 +83,7 @@ var Loader = function(){
                     }
                 };
                 //img.src = ctx + "/template/1024/" + imgArray[i];
-                img.src = ctx + "/" + imgArray[i];
+                img.src = "/" + imgArray[i];
             }else{
                 this.loadMusic(imgArray[i]);
             }
@@ -136,7 +136,7 @@ var Loader = function(){
 			obj.Loading(imgArray,obj.success);
 		};
 		//img.src = ctx + "/template/1024/" + imgArray[0];
-		img.src = ctx + "/" + imgArray[0];
+		img.src =  "/" + imgArray[0];
 	};
 };
 //window.onload = function(){

@@ -51,9 +51,7 @@ $(function(){
         //}
     }
 
-    var audio = $(".audio")[0];  
-
-    audio.pause();  
+    var audio = $(".tips")[0]; 
 
     audio.play();  
 

@@ -3,11 +3,18 @@
 $(function(){
 
     function audioAutoPlay(id){
-        var audio = $(id);
-        audio[0].play();
-        document.addEventListener("WeixinJSBridgeReady", function () {
-                audio[0].play();
-        }, false);
+        wx.config({
+                debug: false,
+                appId: '111',
+                timestamp: '111',
+                nonceStr: '111',
+                signature: '111',
+                jsApiList: []
+        })
+        wx.ready(()=> {
+        　　　　let video = document.querySelectorAll(id)[0];
+               video.play();
+        });
     }
 
     
@@ -60,9 +67,11 @@ $(function(){
         //}
     }
 
-    var audio = $(".tips")[0]; 
+    audioAutoPlay(".tips");
 
-    audio.play();  
+    // var audio = $(".tips")[0]; 
+
+    // audio.play();  
 
     //init.initDate = initDate;  // 设置时间循环
     this.page1Play = page1Play;  // 消息显示与消息声音提示

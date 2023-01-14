@@ -2,6 +2,14 @@
 
 $(function(){
 
+    function audioAutoPlay(id){
+        var audio = $(id);
+        audio[0].play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+                audio[0].play();
+        }, false);
+    }
+
     
 
 
@@ -93,7 +101,8 @@ $(function(){
             if( 1 ){
                 clearTimeout(timeout);
                 //if( $('.page1 .unlock')[0].readyState == 4 ){
-                    $('.page1 .unlock')[0].play();
+                    audioAutoPlay('.page1 .unlock');
+                    //$('.page1 .unlock')[0].play();
                 //}
                 $('.page1').addClass('hidden');
                 showMessage();
@@ -219,8 +228,16 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         //setTimeout(function(){
             $('.page2').addClass('hidden');
             //if( $('.page3 .call')[0].readyState == 4 ){
-                var media = document.querySelector('.page3 .call');
-                media.play();
+
+                winodw.WeixinJSBridge.invoke('getNetworkType', {}, function(e) {
+                    // 在这里拿到 e.err_msg, 这里面就包含了所有的网络类型
+                    // alert(e.err_msg);
+                    document.getElementById('.page3 .call').play();
+                });
+
+                //autoPlayAudio1('.page3 .call');
+               // var media = document.querySelector('.page3 .call');
+               // media.play();
                // $('.page3 .call')[0].play();   // 来电铃声播放
             //}
             isCanAnswer = true;

@@ -14,7 +14,7 @@
 
     </script>
     <script type="text/javascript" src="./js/zepto.min.js"></script>
-    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript" src="./js/Loader.js?v=1.2.0.25"></script>
     <!-- <script type="text/javascript" src="http://ca.lagou.com/template/common/share.js?v=1.2.0.25"></script> -->
     <!--<script type="text/javascript" src="http://ca.lagou.com/template/growingSeason/js/share.js?v=dream1"></script>-->
@@ -26,15 +26,15 @@
         document.getElementsByTagName("html")[0].style.fontSize=GC.w/16+'px';
 
         // DOM中的内容加载完毕之后，调用函数
-        document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+        // document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
 
-        function musicInWeixinHandler() {
-            musicPlay(true);
-            document.addEventListener("WeixinJSBridgeReady", function () {
-                musicPlay(true);
-            }, false);
-            document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
-        }
+        // function musicInWeixinHandler() {
+        //     musicPlay(true);
+        //     document.addEventListener("WeixinJSBridgeReady", function () {
+        //         musicPlay(true);
+        //     }, false);
+        //     document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+        // }
         
     </script>
 </head><iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe><iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe>

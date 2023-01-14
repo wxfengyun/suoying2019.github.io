@@ -2,19 +2,23 @@
 
 $(function(){
 
-    function audioAutoPlay(id){
-        wx.config({
-                debug: false,
-                appId: '111',
-                timestamp: '111',
-                nonceStr: '111',
-                signature: '111',
-                jsApiList: []
-        })
-        wx.ready(()=> {
-        　　　　let video = document.querySelectorAll(id)[0];
-               video.play();
-        });
+    function audioAutoPlay(id) {
+        var audio = document.getElementsByClassName(id);
+
+        if (window.WeixinJSBridge) {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                audio[0].play();
+            }, false);
+        } else {
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                    audio[0].play();
+                });
+            }, false);
+        }
+        audio[0].play();
+
+        return false;
     }
 
 
@@ -68,21 +72,16 @@ $(function(){
         //}
     }
 
-    const tipsAudio = document.getElementsByClassName('.tips');
+    // const tipsAudio = document.getElementsByClassName('.tips');
 
-    window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
-      console.log("222222");
-      tipsAudio[0].play();
+    // window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+    //   console.log("222222");
+    //   tipsAudio[0].play();
 
-    }, false);
+    // }, false);
 
-    const elementAudio = document.getElementById('audio');
 
-    window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
-      elementAudio.play();
-    }, false);
-
-    console.log("11111111");
+    audioAutoPlay('tips');
 
     //audioAutoPlay(".tips");
 

@@ -3,7 +3,7 @@
 $(function(){
 
     function audioAutoPlay(id) {
-        var audio = document.getElementsByClassName(id);
+        var audio = $(id);
 
         if (window.WeixinJSBridge) {
             WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
@@ -72,22 +72,10 @@ $(function(){
         //}
     }
 
-    // const tipsAudio = document.getElementsByClassName('.tips');
+ 
 
-    // window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
-    //   console.log("222222");
-    //   tipsAudio[0].play();
+    audioAutoPlay('.tips');
 
-    // }, false);
-
-
-    audioAutoPlay('tips');
-
-    //audioAutoPlay(".tips");
-
-    // var audio = $(".tips")[0]; 
-
-    // audio.play();  
 
     //init.initDate = initDate;  // 设置时间循环
     this.page1Play = page1Play;  // 消息显示与消息声音提示
@@ -261,11 +249,7 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
             $('.page2').addClass('hidden');
             //if( $('.page3 .call')[0].readyState == 4 ){
 
-                winodw.WeixinJSBridge.invoke('getNetworkType', {}, function(e) {
-                    // 在这里拿到 e.err_msg, 这里面就包含了所有的网络类型
-                    // alert(e.err_msg);
-                    document.getElementById('.page3 .call').play();
-                });
+            audioAutoPlay('.page3 .call');
 
                 //autoPlayAudio1('.page3 .call');
                // var media = document.querySelector('.page3 .call');
@@ -295,7 +279,8 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
             sec = 0;
             isHangup = true;
             //if( $('.page4 .hangupBtn audio')[0].readyState == 4 ){
-                $('.page4 .hangupBtn audio')[0].play();
+            audioAutoPlay('.page4 .hangupBtn audio');
+            //$('.page4 .hangupBtn audio')[0].play();
             //}
             ctrlVoiceTime();
         },500);
@@ -316,7 +301,8 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
             clearTimeout(voiceTime);
             $('.page4 .hangupBtn audio')[0].pause();
             //if( $('.page4 .dudu')[0].readyState == 4 ){
-                $('.page4 .dudu')[0].play();
+            audioAutoPlay('.page4 .dudu');
+                // $('.page4 .dudu')[0].play();
             //}
             //advance = true;
             duduTime = setTimeout(function(){   // 嘟嘟声音为4秒，4秒后显示文案页
@@ -353,7 +339,8 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         $('.page4').addClass('hidden');
         $('.page5').removeClass('hidden');
         //if( $('.page5 .wordBG')[0].readyState == 4 ){
-            $('.page5 .wordBG')[0].play();
+        audioAutoPlay('.page5 .wordBG');
+            // $('.page5 .wordBG')[0].play();
         //}
         page5Animation();
         //}else{

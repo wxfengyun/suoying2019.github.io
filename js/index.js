@@ -219,7 +219,9 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         //setTimeout(function(){
             $('.page2').addClass('hidden');
             //if( $('.page3 .call')[0].readyState == 4 ){
-                $('.page3 .call')[0].play();   // 来电铃声播放
+                var media = document.querySelector('.page3 .call');
+                media.play();
+               // $('.page3 .call')[0].play();   // 来电铃声播放
             //}
             isCanAnswer = true;
         //},1000);

@@ -17,6 +17,7 @@ $(function(){
         });
     }
 
+
     
 
 
@@ -70,8 +71,18 @@ $(function(){
     const tipsAudio = document.getElementsByClassName('.tips');
 
     window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+      console.log("222222");
       tipsAudio[0].play();
+
     }, false);
+
+    const elementAudio = document.getElementById('audio');
+
+    window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+      elementAudio.play();
+    }, false);
+
+    console.log("11111111");
 
     //audioAutoPlay(".tips");
 

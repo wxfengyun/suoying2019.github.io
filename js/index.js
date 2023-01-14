@@ -67,7 +67,13 @@ $(function(){
         //}
     }
 
-    audioAutoPlay(".tips");
+    const tipsAudio = document.getElementsByClassName('.tips');
+
+    window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+      tipsAudio[0].play();
+    }, false);
+
+    //audioAutoPlay(".tips");
 
     // var audio = $(".tips")[0]; 
 
@@ -110,7 +116,14 @@ $(function(){
             if( 1 ){
                 clearTimeout(timeout);
                 //if( $('.page1 .unlock')[0].readyState == 4 ){
-                    audioAutoPlay('.page1 .unlock');
+
+                    const elementAudio = document.getElementsByClassName('.page1 .unlock');
+
+                    window.WeixinJSBridge && window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+                      elementAudio[0].play();
+                    }, false);
+
+                    //audioAutoPlay('.page1 .unlock');
                     //$('.page1 .unlock')[0].play();
                 //}
                 $('.page1').addClass('hidden');

@@ -297,7 +297,7 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
             minu += 1;
         }
         voiceTime = setTimeout(ctrlVoiceTime,1000);
-        if( (minu * 60 + sec) > 7 ){  // 设定通话时间最大为5秒，五秒后清除通话时间的定时器，并暂停语音，播放嘟嘟声音
+        if( (minu * 60 + sec) > 8 ){  // 设定通话时间最大为8秒，8秒后清除通话时间的定时器，并暂停语音，播放嘟嘟声音
             clearTimeout(voiceTime);
             $('.page4 .hangupBtn audio')[0].pause();
             //if( $('.page4 .dudu')[0].readyState == 4 ){
@@ -362,19 +362,17 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
         for( var i = 0; i < li.length; i++ ){
             (function(index){
                 setTimeout(function(){
+                    li.eq(index).removeClass('hidden').addClass('lineIn');  // 从上到下逐行输出并保留
                     if( index == (li.length - 1) ){   // 如果当前是最后一条文案
-                        li.eq(index).removeClass('hidden').addClass('lastAnimation');
-                        // 最后一条文案 停留 3000ms 后显示第二部分文案
+                        // 最后一条文案 停留 2000ms 后显示第二部分文案
                         setTimeout(function(){
                             $('.page5 .message').removeClass('hidden');//.css({'width':GC.w+'px','height':GC.h+'px'});
                             //$('.page5 .messBG').css({'width':GC.w+'px','height':GC.h+'px'}).addClass('person').removeClass('hidden');
                             $('.page5 .messBG').addClass('person').removeClass('hidden');
                             nextAnimate();   // 第二部分文案动画
                         },2000);
-                    }else{
-                        li.eq(index).removeClass('hidden').addClass('doAnimate');  // 文案显示渐隐时间为2500ms
                     }
-                },2500 * index+500);  // 第一条文案等待 500ms  后面的文案比前一条文案多等待 2500ms
+                },1000 * index + 500);  // 第一条等待 500ms，之后每隔 1s 输出一行
             })(i);
         }
     }

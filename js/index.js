@@ -363,16 +363,17 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
             (function(index){
                 setTimeout(function(){
                     li.eq(index).removeClass('hidden').addClass('lineIn');  // 从上到下逐行输出并保留
-                    if( index == (li.length - 1) ){   // 如果当前是最后一条文案
-                        // 最后一条文案 停留 2000ms 后显示第二部分文案
+                    if( index == (li.length - 1) ){   // 最后一条显示完后
+                        // 等待 2000ms 清空页面，再显示第二部分文案
                         setTimeout(function(){
+                            $('.page5 .quotations').addClass('hidden');  // 清空诗词
                             $('.page5 .message').removeClass('hidden');//.css({'width':GC.w+'px','height':GC.h+'px'});
                             //$('.page5 .messBG').css({'width':GC.w+'px','height':GC.h+'px'}).addClass('person').removeClass('hidden');
                             $('.page5 .messBG').addClass('person').removeClass('hidden');
                             nextAnimate();   // 第二部分文案动画
                         },2000);
                     }
-                },1000 * index + 500);  // 第一条等待 500ms，之后每隔 1s 输出一行
+                },2000 * index + 500);  // 第一条等待 500ms，之后每隔 2s 输出一行
             })(i);
         }
     }

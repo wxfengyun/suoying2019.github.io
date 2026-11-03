@@ -373,7 +373,7 @@ var minu = 0, sec = 0,voiceTime,isCanAnswer = false,isHangup = false;
                             nextAnimate();   // 第二部分文案动画
                         },2000);
                     }
-                },2000 * index + 500);  // 第一条等待 500ms，之后每隔 2s 输出一行
+                },3000 * index + 500);  // 第一条等待 500ms，之后每隔 3s 输出一行
             })(i);
         }
     }
